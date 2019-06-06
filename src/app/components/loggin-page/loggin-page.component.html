@@ -1,0 +1,12 @@
+<div class="col-xs-4">
+  <div class="form-group">
+    
+    <label for="input">Correo</label>
+    <input type="email" class="form-control" placeholder="Correo" #correo>
+    <small id="emailHelp" class="form-text text-muted">Ingresa tu correo</small>
+    <label for="exampleInputPassword1">Contraseña</label>
+    <input type="password" class="form-control" placeholder="Contraseña" #contrasena>
+  </div>
+</div>
+  <button type="button" class="btn btn-warning" (click)="logginPageService.login(correo.value,contrasena.value)">Loggin</button>
+  <button type="button" class="btn btn-light" >Sing-up</button>

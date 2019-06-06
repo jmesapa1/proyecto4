@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="home">{{usuario}}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="home">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="mis-rutas">Mis rutas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="crear-ruta">Crear ruta</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+      <div class="row">
+          <div class="col">
+              <div class="form-group">
+    
+                  <label for="input">Nombre</label>
+                  <input type="text" class="form-control" placeholder="nombre" #nombre>
+                  <small id="emailHelp" class="form-text text-muted">Ingresa un nombre a tu ruta</small>
+                  <button type="button" class="btn btn-dark" *ngIf="!this.SinEmpezar" (click)="this.SinEmpezar=true;terminarRuta(nombre.value);nombre.value='';" #btnTerminar>Terminar</button>
+                  <button type="button" class="btn btn-secondary" *ngIf="this.SinEmpezar" (click)="this.SinEmpezar=false;empezarRuta(nombre.value);" #btnEmpezar>EMPEZAR</button>
+                  
+
+                </div>
+                <h2>Mis rutas</h2>
+                <ul class="heroes">
+                  <li *ngFor="let ruta of rutas">
+                <span class="badge">{{ruta.id}}</span> 
+                </li>
+                </ul>
+          </div>
+          <div class="col">
+              <h1>{{ title }}</h1>
+
+              <!-- this creates a google map on the page with the given lat/lng from -->
+              <!-- the component as the initial center of the map: -->
+              <agm-map [latitude]="lat" [longitude]="lng" [usePanning]="true">
+                <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+              </agm-map>
+
+
+
+
+
+
+
+
+
+        </div>
+     </div>
+    
+</div>
+
